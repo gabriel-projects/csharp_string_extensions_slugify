@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+	<Description>Método de extensão ToSlug() para gerar slugs amigáveis de URLs</Description>
+	<Authors>gabriel-projects</Authors>
+	<Company>Gabriel Projects</Company>
+	<RepositoryUrl>https://github.com/gabriel-projects/csharp_string_extensions_slugify</RepositoryUrl>
+	<LangVersion>latest</LangVersion>  
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
