@@ -5,8 +5,16 @@ using System.Text.RegularExpressions;
 
 namespace Api.GRRInnovations.Wrapper.Package
 {
+    /// <summary>
+    /// Provides extension methods for string manipulation, specifically for generating URL-friendly slugs.
+    /// </summary>
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// Converts a string into a URL-friendly slug.
+        /// </summary>
+        /// <param name="value">The string to convert into a slug.</param>
+        /// <returns>A URL-friendly slug version of the input string.</returns>
         public static string ToSlug(this string value)
         {
             if (string.IsNullOrWhiteSpace(value))
@@ -18,7 +26,9 @@ namespace Api.GRRInnovations.Wrapper.Package
 
             var builder = new StringBuilder();
 
-            foreach (char c in value)
+            var normalized = value.Normalize(NormalizationForm.FormD);
+
+            foreach (char c in normalized)
             {
                 var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
                 if (unicodeCategory != UnicodeCategory.NonSpacingMark)
@@ -27,9 +37,9 @@ namespace Api.GRRInnovations.Wrapper.Package
 
             var result = builder.ToString().Normalize(NormalizationForm.FormC);
             result = result.ToLowerInvariant();
-            result = InvalidCharacterRegex().Replace(result, ""); // remove caracteres inválidos
-            result = WhitespaceRegex().Replace(result, "-");         // substitui espaços por hífen
-            result = DuplicateHyphenRegex().Replace(result, "-");          // remove hífens duplicados
+            result = InvalidCharacterRegex().Replace(result, ""); // Remove invalid characters
+            result = WhitespaceRegex().Replace(result, "-");     // Replace spaces with hyphens
+            result = DuplicateHyphenRegex().Replace(result, "-"); // Remove duplicate hyphens
             return result.Trim('-');
         }
 
