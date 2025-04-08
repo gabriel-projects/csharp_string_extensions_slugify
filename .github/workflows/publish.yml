@@ -5,6 +5,7 @@ on:
 
 env:
   PROJECT_PATH: ./src/Api.GRRInnovations.StringExtensions.Slugify/Api.GRRInnovations.StringExtensions.Slugify.csproj
+  PROJECT_DIR: ./src/Api.GRRInnovations.StringExtensions.Slugify
 
 jobs:
   publish:
@@ -17,6 +18,9 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '8.0.x'
+
+    - name: Copy README.md to project folder
+      run: cp README.md $PROJECT_DIR
 
     - name: Build
       run: dotnet build $PROJECT_PATH --configuration Release
