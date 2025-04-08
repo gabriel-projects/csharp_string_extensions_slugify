@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<Version>1.0.3</Version>
+	<Version>1.0.4</Version>
     <TargetFramework>net8.0</TargetFramework>
 	<Description>Método de extensão ToSlug() para gerar slugs amigáveis de URLs</Description>
 	<Authors>gabriel-projects</Authors>
@@ -15,10 +15,10 @@
   </PropertyGroup>
 
 	<PropertyGroup>
-		<PackageReadmeFile>../../README.md</PackageReadmeFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="../../README.md" Pack="true" PackagePath="" />
+		<None Include="README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 </Project>
